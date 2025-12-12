@@ -57,7 +57,7 @@ def main():
                     nr = nr_os
                 google_sheets.set_status_in_cols_p_t(SPREADSHEET_ID, row_number, ["tak",nr,"Andrzej Gwiazda","tak","wyslij"])
                 #green
-                google_sheets.color_cols_a_o_green(SPREADSHEET_ID, row_number, color = "#35a853")
+                #  google_sheets.color_cols_a_o_green(SPREADSHEET_ID, row_number, color = "#35a853") # now it is in google script
                 decyzja2.create_and_upload_pdfs(typ, row, nr)
                 if typ=="czlonek":
                     nr_czlonka+=1
