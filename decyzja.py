@@ -113,16 +113,23 @@ Prezes Klubu Żeglarskiego Uniwersytetu Warszawskiego
         nr_decyzji += 1
         
         if typ == "czlonek":
-            os.system(f"rclone copy '{nazwa_pliku[:-3]+'pdf'}' gdrive:Klub\ Żeglarski\ UW/Członkostwo/Decyzje/DC/ --progress")
+            os.system(
+    f"rclone copy '{nazwa_pliku[:-3]+'pdf'}' "
+    "gdrive:Klub\\ Żeglarski\\ UW/Członkostwo/Decyzje/DC/ --progress"
+)
             nr_czlonka+=1
         else:
-            os.system(f"rclone copy '{nazwa_pliku[:-3]+'pdf'}' gdrive:Klub\ Żeglarski\ UW/Członkostwo/Decyzje/DOS/ --progress")
+            os.system(
+    f"rclone copy '{nazwa_pliku[:-3]+'pdf'}' "
+    "gdrive:Klub\\ Żeglarski\\ UW/Członkostwo/Decyzje/DOS/ --progress"
+)
             nr_os+=1
     print("\nMaile:\n")
     for email in lista_maili:
         print(email)
         
     with open("nr_czlonka_os.pkl", "wb") as f:
-        pickle.dump((nr_czlonka, nr_os, f)
+        pickle.dump((nr_czlonka, nr_os), f)
 
-main()
+if __name__ == "__main__":
+    main()
